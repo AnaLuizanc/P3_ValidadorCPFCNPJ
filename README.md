@@ -15,10 +15,10 @@ O método ```obterDigito(long, int):int``` deve ser empregado internamente ao m�
 O método ```obterDigito(long, int):int``` deve ser empregado internamente ao método
 ```isCpfValido(String):boolean``` a fim validar CPFs recebidos como parâmetros.
 
-O ```método obterDigito(long, int):int``` deve ser empregado internamente ao método
+O método ```obterDigito(long, int):int``` deve ser empregado internamente ao método
 ```isCnpjValido(long):boolean``` a fim validar CNPJs recebidos como parâmetros.
 
-O ```método obterDigito(long, int):int``` deve ser empregado internamente ao método
+O método ```obterDigito(long, int):int``` deve ser empregado internamente ao método
 ```isCnpjValido(String):boolean``` a fim validar CNPJs recebidos como parâmetros.
 
 Os métodos que recebem strings devem converter tais strings em inteiros longos e operar sobre estes
