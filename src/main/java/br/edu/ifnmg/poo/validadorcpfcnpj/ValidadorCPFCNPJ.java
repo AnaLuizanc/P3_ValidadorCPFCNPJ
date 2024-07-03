@@ -27,4 +27,16 @@ public class ValidadorCPFCNPJ {
     }
 
 //</editor-fold>
+    
+    public static boolean isCpfValido(long numero) throws CpfInvalidoException{
+        int digitos = Long.toString(numero).length();
+        
+        if (digitos == 11){
+            // código de verificação se o CPF é válido
+            
+        } else{
+            throw  new CpfInvalidoException();
+        }
+    }
+
 }
