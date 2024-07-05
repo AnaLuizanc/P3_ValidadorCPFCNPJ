@@ -12,7 +12,15 @@ public class Program {
         
         try {
             valida.setNumero(14230703058L);
-            valida.isCpfValido(14230703058L);
+            ValidadorCPFCNPJ.isCpfValido(14230703058L);
+            
+        } catch (CpfInvalidoException e) {
+            System.out.println("ERRO: " + e.getMessage());
+        }
+        
+        try {
+            valida.setNumero(230703058L);
+            ValidadorCPFCNPJ.isCpfValido(230703058L);
             
         } catch (CpfInvalidoException e) {
             System.out.println("ERRO: " + e.getMessage());
