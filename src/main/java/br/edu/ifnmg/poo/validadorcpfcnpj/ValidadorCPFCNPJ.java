@@ -29,31 +29,13 @@ public class ValidadorCPFCNPJ {
 //</editor-fold>
     public static void isCpfValido(long numero) throws CpfInvalidoException {
 
-        if (ValidadorCPFCNPJ.contarDigitos(numero)) {
-            // primeira parte verdadeira
+        if () {
+
+            
             System.out.println("true");
         } else {
             throw new CpfInvalidoException();
         }
     }
-
-    public static boolean contarDigitos(long numero) {
-        int digitos = 0;
-        long quociente = 10000000000L;
-        if (numero / quociente == 0) {
-            return false;
-        } else {
-            while (quociente >= 1) {
-                if ((numero / quociente) == 0) {
-                    digitos++;
-                    quociente = quociente / 10;
-                    continue;
-                }
-                numero = numero % quociente;
-                quociente = quociente / 10;
-                digitos++;
-            }
-        }
-        return digitos == 11 ? true : false;
-    }
+    
 }
