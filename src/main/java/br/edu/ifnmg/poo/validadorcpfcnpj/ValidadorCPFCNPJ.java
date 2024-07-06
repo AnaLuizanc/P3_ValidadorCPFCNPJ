@@ -6,36 +6,27 @@ package br.edu.ifnmg.poo.validadorcpfcnpj;
  */
 public class ValidadorCPFCNPJ {
 
-    private long numero;
-    private String numeroString;
+    private static long numero;
+    private static String numeroString;
 
     //<editor-fold defaultstate="collapsed" desc="Getters e Setters">
-    public long getNumero() {
+    public static long getNumero() {
         return numero;
     }
 
-    public void setNumero(long numero) {
-        this.numero = numero;
+    public static void setNumero(long numero) {
+        ValidadorCPFCNPJ.numero = numero;
     }
 
-    public String getNumeroString() {
+    public static String getNumeroString() {
         return numeroString;
     }
 
-    public void setNumeroString(String numeroString) {
-        this.numeroString = numeroString;
+    public static void setNumeroString(String numeroString) {
+        ValidadorCPFCNPJ.numeroString = numeroString;
     }
 
 //</editor-fold>
-    public static void isCpfValido(long numero) throws CpfInvalidoException {
 
-        if () {
 
-            
-            System.out.println("true");
-        } else {
-            throw new CpfInvalidoException();
-        }
-    }
-    
 }
