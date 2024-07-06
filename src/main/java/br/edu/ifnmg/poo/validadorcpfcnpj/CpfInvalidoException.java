@@ -7,6 +7,7 @@ package br.edu.ifnmg.poo.validadorcpfcnpj;
 public class CpfInvalidoException extends Exception {
 
     public CpfInvalidoException() {
-        super("Numero de digitos do CPF incompativel com o padrao.");
+        super("Inválido.");
     }
+    
 }
