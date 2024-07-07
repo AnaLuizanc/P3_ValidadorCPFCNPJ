@@ -50,17 +50,11 @@ public class ValidadorCPFCNPJ {
     }
 
     public static long converterStringParaLong(String numero) {
-        return Long.parseLong(ValidadorCPFCNPJ.removerSimbolos(numero));
+        return Long.parseLong(ValidadorCPFCNPJ.removerSimbolosCpf(numero));
     }
 
-    public static String removerSimbolos(String cpf) {
-        String primeiraParte, segundaParte, terceiraParte, quartaParte;
-        primeiraParte = cpf.substring(0, 3);
-        segundaParte = cpf.substring(4, 7);
-        terceiraParte = cpf.substring(8, 11);
-        quartaParte = cpf.substring(cpf.indexOf("-") + 1);
-        cpf = primeiraParte + segundaParte + terceiraParte + quartaParte;
-        return cpf;
+    public static String removerSimbolosCpf(String cpf) {
+        return cpf.substring(0, 3) + cpf.substring(4, 7) + cpf.substring(8, 11) + cpf.substring(cpf.indexOf("-") + 1);
     }
     //</editor-fold>
 
