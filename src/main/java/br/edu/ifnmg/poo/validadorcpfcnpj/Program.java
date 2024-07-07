@@ -42,5 +42,12 @@ public class Program {
         } catch (CpfInvalidoException e) {
             System.out.println(e.getMessage());
         }
+
+        try {
+            ValidadorCPFCNPJ.isCnpjValido(35017120000186L);
+
+        } catch (CnpjInvalidoException e) {
+            System.out.println(e.getMessage());
+        }
     }
 }
