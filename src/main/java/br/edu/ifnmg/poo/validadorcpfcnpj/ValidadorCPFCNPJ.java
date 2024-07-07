@@ -36,7 +36,7 @@ public class ValidadorCPFCNPJ {
     }
 
     public static boolean isCpfValido(String cpf) throws CpfInvalidoException {
-        long cpfLong = converterStringParaLong(cpf);
+        long cpfLong = converterStringParaLong(removerSimbolosCpf(cpf));
         long digitoVerificador = cpfLong % 100;
         int digitoVerificadorGerado = geradorDigitoVerificadorCpf(cpfLong / 100);
         digitoVerificadorGerado = digitoVerificadorGerado * 10 + geradorDigitoVerificadorCpf(cpfLong / 10);
@@ -50,7 +50,7 @@ public class ValidadorCPFCNPJ {
     }
 
     public static long converterStringParaLong(String numero) {
-        return Long.parseLong(ValidadorCPFCNPJ.removerSimbolosCpf(numero));
+        return Long.parseLong(numero);
     }
 
     public static String removerSimbolosCpf(String cpf) {
@@ -92,5 +92,6 @@ public class ValidadorCPFCNPJ {
             return 0;
         }
     }
-    
+
+
 }
