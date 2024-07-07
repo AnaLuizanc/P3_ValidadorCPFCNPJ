@@ -7,24 +7,26 @@ package br.edu.ifnmg.poo.validadorcpfcnpj;
 public class Program {
 
     public static void main(String[] args) {
-        ValidadorCPFCNPJ valida = new ValidadorCPFCNPJ();
-        
-        
+
         try {
-            valida.setNumero(14230703058L);
             ValidadorCPFCNPJ.isCpfValido(14230703058L);
-            
+
         } catch (CpfInvalidoException e) {
-            System.out.println("ERRO: " + e.getMessage());
+            System.out.println(e.getMessage());
+        }
+
+        try {
+            ValidadorCPFCNPJ.isCpfValido(230703058L);
+
+        } catch (CpfInvalidoException e) {
+            System.out.println(e.getMessage());
         }
         
         try {
-            valida.setNumero(230703058L);
-            ValidadorCPFCNPJ.isCpfValido(230703058L);
-            
+            ValidadorCPFCNPJ.isCpfValido(456789014L);
+
         } catch (CpfInvalidoException e) {
-            System.out.println("ERRO: " + e.getMessage());
+            System.out.println(e.getMessage());
         }
-       
     }
 }
