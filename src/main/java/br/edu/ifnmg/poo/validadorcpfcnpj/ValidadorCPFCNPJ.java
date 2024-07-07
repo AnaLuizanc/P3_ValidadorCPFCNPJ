@@ -6,10 +6,11 @@ package br.edu.ifnmg.poo.validadorcpfcnpj;
  */
 public class ValidadorCPFCNPJ {
 
+    //<editor-fold defaultstate="collapsed" desc="Métodos de verificação de CPF">
     public static boolean isCpfValido(long cpf) throws CpfInvalidoException {
         long digitoVerificador = cpf % 100;
-        int digitoVerificadorGerado = geradorDigitoVerificador(cpf / 100);
-        digitoVerificadorGerado = digitoVerificadorGerado * 10 + geradorDigitoVerificador(cpf / 10);
+        int digitoVerificadorGerado = geradorDigitoVerificadorCpf(cpf / 100);
+        digitoVerificadorGerado = digitoVerificadorGerado * 10 + geradorDigitoVerificadorCpf(cpf / 10);
         if (digitoVerificador == digitoVerificadorGerado) {
             System.out.println(cpf + "\nVálido.");
             return true;
@@ -19,7 +20,7 @@ public class ValidadorCPFCNPJ {
         }
     }
 
-    public static int geradorDigitoVerificador(long cpf) {
+    public static int geradorDigitoVerificadorCpf(long cpf) {
         int somatorio = 0;
         int indice = 9;
         while (cpf > 0) {
@@ -37,8 +38,8 @@ public class ValidadorCPFCNPJ {
     public static boolean isCpfValido(String cpf) throws CpfInvalidoException {
         long cpfLong = converterStringParaLong(cpf);
         long digitoVerificador = cpfLong % 100;
-        int digitoVerificadorGerado = geradorDigitoVerificador(cpfLong / 100);
-        digitoVerificadorGerado = digitoVerificadorGerado * 10 + geradorDigitoVerificador(cpfLong / 10);
+        int digitoVerificadorGerado = geradorDigitoVerificadorCpf(cpfLong / 100);
+        digitoVerificadorGerado = digitoVerificadorGerado * 10 + geradorDigitoVerificadorCpf(cpfLong / 10);
         if (digitoVerificador == digitoVerificadorGerado) {
             System.out.println(cpf + "\nVálido.");
             return true;
@@ -61,5 +62,7 @@ public class ValidadorCPFCNPJ {
         cpf = primeiraParte + segundaParte + terceiraParte + quartaParte;
         return cpf;
     }
+    //</editor-fold>
 
+    
 }
