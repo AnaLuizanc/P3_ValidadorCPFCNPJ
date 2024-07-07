@@ -34,7 +34,20 @@ public class ValidadorCPFCNPJ {
         return (int) cpf % 10;
     }
 
-   
+    public static boolean isCpfValido(String cpf) throws CpfInvalidoException {
+        long cpfLong = converterStringParaLong(cpf);
+        long digitoVerificador = cpfLong % 100;
+        int digitoVerificadorGerado = geradorDigitoVerificador(cpfLong / 100);
+        digitoVerificadorGerado = digitoVerificadorGerado * 10 + geradorDigitoVerificador(cpfLong / 10);
+        if (digitoVerificador == digitoVerificadorGerado) {
+            System.out.println(cpf + "\nVálido.");
+            return true;
+        } else {
+            System.out.println(cpf);
+            throw new CpfInvalidoException();
+        }
+    }
+
     public static long converterStringParaLong(String cpf) {
         return Long.parseLong(ValidadorCPFCNPJ.removerSimbolos(cpf));
     }
