@@ -16,12 +16,26 @@ public class Program {
         }
 
         try {
+            ValidadorCPFCNPJ.isCpfValido("142.307.030-58");
+
+        } catch (CpfInvalidoException e) {
+            System.out.println(e.getMessage());
+        }
+
+        try {
             ValidadorCPFCNPJ.isCpfValido(230703058L);
 
         } catch (CpfInvalidoException e) {
             System.out.println(e.getMessage());
         }
-        
+
+        try {
+            ValidadorCPFCNPJ.isCpfValido("002.307.030-58");
+
+        } catch (CpfInvalidoException e) {
+            System.out.println(e.getMessage());
+        }
+
         try {
             ValidadorCPFCNPJ.isCpfValido(456789014L);
 
