@@ -64,5 +64,39 @@ public class ValidadorCPFCNPJ {
     }
     //</editor-fold>
 
+    public static boolean isCnpjValido(long cnpj) throws CnpjInvalidoException{
+        long digitoVerificador = cnpj % 100;
+        int digitoVerificadorGerado = geradorDigitoVerificadorCnpj(cnpj / 100);
+        digitoVerificadorGerado = digitoVerificadorGerado * 10 + geradorDigitoVerificadorCnpj(cnpj / 10);
+        if (digitoVerificador == digitoVerificadorGerado) {
+            System.out.println(cnpj + "\nVálido.");
+            return true;
+        } else {
+            System.out.println(cnpj);
+            throw new CnpjInvalidoException();
+        }
+    }
+    
+    public static int geradorDigitoVerificadorCnpj(long cnpj){
+        int somatorio = 0;
+        int minimo = 2;
+        while (minimo <= 9) {
+            somatorio += ((cnpj % 10) * minimo);
+            minimo++;
+            cnpj /= 10;
+        }
+        minimo = 2;
+        while(cnpj > 0){
+            somatorio += obterDigito(cnpj, minimo) * minimo;
+            minimo++;
+            cnpj /= 10;
+        }
+        somatorio %= 11;
+        if(somatorio > 0)
+            return 11 - (int) (somatorio);
+        else{
+            return 0;
+        }
+    }
     
 }
