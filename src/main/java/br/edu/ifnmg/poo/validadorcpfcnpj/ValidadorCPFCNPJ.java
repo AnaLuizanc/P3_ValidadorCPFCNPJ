@@ -34,4 +34,19 @@ public class ValidadorCPFCNPJ {
         return (int) cpf % 10;
     }
 
+   
+    public static long converterStringParaLong(String cpf) {
+        return Long.parseLong(ValidadorCPFCNPJ.removerSimbolos(cpf));
+    }
+
+    public static String removerSimbolos(String cpf) {
+        String primeiraParte, segundaParte, terceiraParte, quartaParte;
+        primeiraParte = cpf.substring(0, 3);
+        segundaParte = cpf.substring(4, 7);
+        terceiraParte = cpf.substring(8, 11);
+        quartaParte = cpf.substring(cpf.indexOf("-") + 1);
+        cpf = primeiraParte + segundaParte + terceiraParte + quartaParte;
+        return cpf;
+    }
+
 }
