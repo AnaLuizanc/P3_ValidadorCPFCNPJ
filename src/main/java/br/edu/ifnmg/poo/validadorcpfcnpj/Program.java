@@ -42,9 +42,23 @@ public class Program {
         } catch (CpfInvalidoException e) {
             System.out.println(e.getMessage());
         }
+        
+        try {
+            ValidadorCPFCNPJ.isCnpjInvalido("35.017.120/0001-86");
+
+        } catch (CnpjInvalidoException e) {
+            System.out.println(e.getMessage());
+        }
 
         try {
             ValidadorCPFCNPJ.isCnpjValido(35017120000186L);
+
+        } catch (CnpjInvalidoException e) {
+            System.out.println(e.getMessage());
+        }
+        
+        try {
+            ValidadorCPFCNPJ.isCnpjInvalido("35.017.120/0001-88");
 
         } catch (CnpjInvalidoException e) {
             System.out.println(e.getMessage());
