@@ -49,8 +49,8 @@ public class ValidadorCPFCNPJ {
         }
     }
 
-    public static long converterStringParaLong(String cpf) {
-        return Long.parseLong(ValidadorCPFCNPJ.removerSimbolos(cpf));
+    public static long converterStringParaLong(String numero) {
+        return Long.parseLong(ValidadorCPFCNPJ.removerSimbolos(numero));
     }
 
     public static String removerSimbolos(String cpf) {
@@ -64,7 +64,7 @@ public class ValidadorCPFCNPJ {
     }
     //</editor-fold>
 
-    public static boolean isCnpjValido(long cnpj) throws CnpjInvalidoException{
+    public static boolean isCnpjValido(long cnpj) throws CnpjInvalidoException {
         long digitoVerificador = cnpj % 100;
         int digitoVerificadorGerado = geradorDigitoVerificadorCnpj(cnpj / 100);
         digitoVerificadorGerado = digitoVerificadorGerado * 10 + geradorDigitoVerificadorCnpj(cnpj / 10);
@@ -76,8 +76,8 @@ public class ValidadorCPFCNPJ {
             throw new CnpjInvalidoException();
         }
     }
-    
-    public static int geradorDigitoVerificadorCnpj(long cnpj){
+
+    public static int geradorDigitoVerificadorCnpj(long cnpj) {
         int somatorio = 0;
         int minimo = 2;
         while (minimo <= 9) {
@@ -86,15 +86,15 @@ public class ValidadorCPFCNPJ {
             cnpj /= 10;
         }
         minimo = 2;
-        while(cnpj > 0){
+        while (cnpj > 0) {
             somatorio += obterDigito(cnpj, minimo) * minimo;
             minimo++;
             cnpj /= 10;
         }
         somatorio %= 11;
-        if(somatorio > 0)
+        if (somatorio > 0) {
             return 11 - (int) (somatorio);
-        else{
+        } else {
             return 0;
         }
     }
