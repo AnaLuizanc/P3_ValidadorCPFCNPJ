@@ -93,7 +93,7 @@ public class ValidadorCPFCNPJ {
         }
     }
 
-    public static boolean isCnpjInvalido(String cnpj) throws CnpjInvalidoException {
+    public static boolean isCnpjValido(String cnpj) throws CnpjInvalidoException {
         long cnpjLong = converterStringParaLong(removerSimbolosCnpj(cnpj));
         long digitoVerificador = cnpjLong % 100;
         int digitoVerificadorGerado = geradorDigitoVerificadorCnpj(cnpjLong / 100);
