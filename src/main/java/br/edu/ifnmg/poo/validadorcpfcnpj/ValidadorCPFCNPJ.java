@@ -1,8 +1,9 @@
 package br.edu.ifnmg.poo.validadorcpfcnpj;
 
 /**
+ * Classe de validação de CPF e CNPJ.
  *
- * @author analu
+ * @author AnaLuizanc
  */
 public class ValidadorCPFCNPJ {
 
@@ -58,6 +59,8 @@ public class ValidadorCPFCNPJ {
     }
     //</editor-fold>
 
+    //<editor-fold defaultstate="collapsed" desc="Métodos de verificação de CNPJ">
+    
     public static boolean isCnpjValido(long cnpj) throws CnpjInvalidoException {
         long digitoVerificador = cnpj % 100;
         int digitoVerificadorGerado = geradorDigitoVerificadorCnpj(cnpj / 100);
@@ -73,16 +76,16 @@ public class ValidadorCPFCNPJ {
 
     public static int geradorDigitoVerificadorCnpj(long cnpj) {
         int somatorio = 0;
-        int minimo = 2;
-        while (minimo <= 9) {
-            somatorio += ((cnpj % 10) * minimo);
-            minimo++;
+        int peso = 2;
+        while (peso <= 9) {
+            somatorio += ((cnpj % 10) * peso);
+            peso++;
             cnpj /= 10;
         }
-        minimo = 2;
+        peso = 2;
         while (cnpj > 0) {
-            somatorio += obterDigito(cnpj, minimo) * minimo;
-            minimo++;
+            somatorio += obterDigito(cnpj, peso) * peso;
+            peso++;
             cnpj /= 10;
         }
         somatorio %= 11;
@@ -110,4 +113,5 @@ public class ValidadorCPFCNPJ {
     public static String removerSimbolosCnpj(String cnpj) {
         return cnpj.substring(0, 2) + cnpj.substring(3, 6) + cnpj.substring(7, 10) + cnpj.substring(11, 15) + cnpj.substring(cnpj.indexOf("-") + 1);
     }
+//</editor-fold>
 }
