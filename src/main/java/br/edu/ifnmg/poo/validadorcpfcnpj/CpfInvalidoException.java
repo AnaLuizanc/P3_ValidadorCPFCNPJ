@@ -1,13 +1,14 @@
 package br.edu.ifnmg.poo.validadorcpfcnpj;
 
 /**
+ * Classe de exceção de CPF.
  *
- * @author analu
+ * @author AnaLuizanc
  */
 public class CpfInvalidoException extends Exception {
 
     public CpfInvalidoException() {
         super("Inválido.");
     }
-    
+
 }

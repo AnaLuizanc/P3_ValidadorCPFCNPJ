@@ -2,7 +2,7 @@ package br.edu.ifnmg.poo.validadorcpfcnpj;
 
 /**
  *
- * @author analu
+ * @author AnaLuizanc
  */
 public class Program {
 
@@ -44,7 +44,7 @@ public class Program {
         }
         
         try {
-            ValidadorCPFCNPJ.isCnpjInvalido("35.017.120/0001-86");
+            ValidadorCPFCNPJ.isCnpjValido("35.017.120/0001-86");
 
         } catch (CnpjInvalidoException e) {
             System.out.println(e.getMessage());
@@ -58,7 +58,7 @@ public class Program {
         }
         
         try {
-            ValidadorCPFCNPJ.isCnpjInvalido("35.017.120/0001-88");
+            ValidadorCPFCNPJ.isCnpjValido("35.017.120/0001-88");
 
         } catch (CnpjInvalidoException e) {
             System.out.println(e.getMessage());
